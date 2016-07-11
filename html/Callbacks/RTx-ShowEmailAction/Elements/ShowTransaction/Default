@@ -1,0 +1,23 @@
+%# vim:ft=mason:sts=4:sw=4:et:miv
+<%ARGS>
+$Transaction
+$Object
+$Actions
+$EmailRecordPath
+</%ARGS>
+<%INIT>
+
+if ($Transaction->ObjectType eq 'RT::Ticket'
+        and $Transaction->HasContent
+        and $EmailRecordPath) {
+    push( @$Actions, {
+        title  => loc('Show'),
+        target => '_blank',
+        path => $EmailRecordPath
+            . '?id=' . $Object->id
+            . '&Transaction=' . $Transaction->id
+            . '&Attachment=' . $Transaction->Content->id
+    } );
+}
+
+</%INIT>
