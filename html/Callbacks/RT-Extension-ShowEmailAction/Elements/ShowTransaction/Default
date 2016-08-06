@@ -1,9 +1,8 @@
 %# vim:ft=mason:sts=4:sw=4:et:
 <%ARGS>
 $Transaction
-$Object
-$Actions
 $EmailRecordPath
+$Actions
 </%ARGS>
 <%INIT>
 
@@ -14,9 +13,9 @@ if ($Transaction->ObjectType eq 'RT::Ticket'
         title  => loc('Show'),
         target => '_blank',
         path => $EmailRecordPath
-            . '?id=' . $Object->id
-            . '&Transaction=' . $Transaction->id
-            . '&Attachment=' . $Transaction->Content->id
+            . '?id=' . $Transaction->ObjectId
+            . '&Transaction=' . $Transaction->Id
+            . '&Attachment=' . $Transaction->ContentObj->Id
     } );
 }
 
