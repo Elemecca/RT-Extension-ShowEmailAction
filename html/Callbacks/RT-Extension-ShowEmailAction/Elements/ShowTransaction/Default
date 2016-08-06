@@ -1,4 +1,4 @@
-%# vim:ft=mason:sts=4:sw=4:et:miv
+%# vim:ft=mason:sts=4:sw=4:et:
 <%ARGS>
 $Transaction
 $Object
